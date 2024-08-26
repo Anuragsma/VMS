@@ -1,0 +1,138 @@
+/* Container setup */
+/* *{
+    margin: 0;
+    padding: 0;
+} */
+
+.fix-container {
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap;  */
+    height: 100vh; 
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    
+   }
+
+  .side-bar {
+    width: 20%;
+    min-width: 200px; 
+    background-color: #f4a261;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    height: 100%; 
+    padding: 0; 
+    box-sizing: border-box; 
+    margin: 0;
+  }
+
+  .main-content {
+    width: 80%;
+    padding: 5px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    overflow-y: auto; 
+    box-sizing: border-box;
+  }
+
+  /* .content-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } */
+  
+.dropDownSelect{
+  /* margin-left: 280px; */
+  padding: 5px;
+  margin: 5px 5px 5px 5px;
+  width: 350px;
+}
+  
+  .qr-container {
+    /* width: 200px; */
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 70%;
+  
+  }
+
+  .qr-code{
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+  }
+
+  .fixed-bottom{
+    left: 250px;
+  }
+  
+  /* for tablets */
+  @media screen and (max-width: 768px) {
+    /* .fix-container {
+      flex-direction: column;
+    } */
+    
+  
+    .sidebar {
+      width: 100%;
+      min-width: 100;
+      height: auto;
+      flex-direction: row;
+      justify-content: space-around; 
+      padding: 10px;
+    }
+  
+    .main-content {
+      width: 100%;
+      height: calc(100vh - 80px); 
+    }
+  
+    .sidebar ul {
+      flex-direction: row;
+      justify-content: space-around; 
+    }
+  }
+
+  /* For mobile phones */
+  
+@media screen and (max-width: 480px) {
+  /* .fix-container {
+      flex-direction: column;
+  } */
+
+  .side-bar {
+      /* flex-direction: row;
+      height: 20%;
+      width: 100%;
+      min-width: 20%; Full width for mobile */
+      width: 100%;
+        min-width: 100%; /* Full width for mobile */
+        order: -1; /* Move sidebar to the top */
+  }
+
+  .main-content {
+      width: 100%;
+      padding: 10px;
+  }
+
+  .form-group {
+      width: 100%;
+  }
+
+  .dropDownSelect {
+      width: 100%;
+      margin-bottom: 10px;
+  }
+
+  .qr-container {
+      margin-top: 10px;
+  }
+}
+
+  

@@ -1,0 +1,77 @@
+
+<!-- <div class="fix-container">
+    <side-bar class="side-bar"></side-bar>
+    <div class="main-content">
+        <div>
+            <h3>CheckingOut</h3>
+        </div>
+    </div>
+</div> -->
+
+<!-- <p>gate-pass works!</p> -->
+
+<div class="fix-container">
+    <side-bar class="side-bar"></side-bar>
+    <!-- <div class="container">
+     -->
+    <div class="main-content">
+        <div class="row-md-2">
+            <div class="col-md-12">
+                <div class="pb-2 mb-2">
+                    <h5 class="pt-2 mb-2">Select the visitor for Check Out</h5>
+                </div>
+
+                <div class="form-group col-sm-5 dropDownSelect">
+                    <select id="itemSelect" class="form-control" (change)="onSelect($event)">
+                        <option value="">-- Select a Visitor --</option>
+                        <option *ngFor="let preApprovedVisitor of preApprovedVisitors" [value]="preApprovedVisitor.id">
+                            {{ preApprovedVisitor.name }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h6 class="p-2">Safety Kits issued : </h6>
+                    <form >
+                        <input type="checkbox" id="helmet" name="helmet" value="helmet">
+                        <label class="p-2" for="helmet"> Helmet</label><br>
+                        <input type="checkbox" id="shoes" name="shoes" value="shoes">
+                        <label class="p-2" for="vehicle2"> Shoes</label><br>
+                        <input type="checkbox" id="goggles" name="goggles" value="goggles">
+                        <label class="p-2" for="goggles"> Goggles</label><br>
+                        <input type="checkbox" id="noseMask" name="noseMask" value="noseMask">
+                        <label class="p-2" for="noseMask"> Nose Mask</label><br><br>
+                        
+                        <!-- <label for="noseMask"> Nose Mask</label><br> -->
+                        <textarea id="others" name="others" ></textarea>
+                        <label class="p-2" for="others"> Others (if any) </label><br>
+                    </form>
+
+                    <input type="checkbox" id="t&c" name="t&c" value="t&c">
+                        <label class="p-2" for="t&c"> Check Out Timing </label><br><br>
+                    <div class="col-md-6">
+                        <button type="submit" class="btn1 btn-primary" (click)="onCheckOutFinally()">Check Out</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h6 class="p-2">Safety Kits returned : </h6>
+                    <form >
+                        <input type="checkbox" id="helmet" name="helmet" value="helmet">
+                        <label class="p-2" for="helmet"> Helmet</label><br>
+                        <input type="checkbox" id="shoes" name="shoes" value="shoes">
+                        <label class="p-2" for="vehicle2"> Shoes</label><br>
+                        <input type="checkbox" id="goggles" name="goggles" value="goggles">
+                        <label class="p-2" for="goggles"> Goggles</label><br>
+                        <input type="checkbox" id="noseMask" name="noseMask" value="noseMask">
+                        <label class="p-2" for="noseMask"> Nose Mask</label><br><br>
+                        
+                        <!-- <label for="noseMask"> Nose Mask</label><br> -->
+                        <textarea id="others" name="others" ></textarea>
+                        <label class="p-2" for="others"> Others (if any) </label><br><br>
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

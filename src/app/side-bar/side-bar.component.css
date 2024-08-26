@@ -1,0 +1,207 @@
+/* .container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh; 
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    
+  } */
+
+  .chakra-logo{
+    /* -webkit-animation: spin 5s linear infinite; */
+    animation: spin 5s linear infinite;
+    height: 90px;
+    padding: 20px 80px;
+  }
+
+  .chakra-resize{
+    padding: 0;
+  }
+
+  @keyframes spin{
+    from {
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+  }
+  
+  .text-logo{
+      width: 85%;
+      padding-left: 6px;
+      margin-left: 6px;
+  }
+
+  /* Sidebar styling */
+  .sidebar {
+    /* width: 20%; */
+    max-width: 20%;
+    max-height: 100%;
+    background-color: #fccc00;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    height: 100%; 
+    padding: 0; 
+    box-sizing: border-box; 
+    margin: 0;
+  }
+
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    margin-top: 20px;
+  }
+  
+  
+  .sidebar li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #fff;
+    padding: 10px 20px; 
+  }
+  
+  .sidebar li i {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+  
+  /* .icon-home::before{
+    content: ;
+  } */
+
+  .icon-checkin::before {
+    content: '\2714'; 
+  }
+  
+  .icon-checkout::before {
+    content: '\2716'; 
+  }
+
+  .icon-register::before {
+    content: '\00AE';
+  }
+
+  .btn {
+    cursor: pointer;
+    border: solid rgb(187, 204, 0);
+    font-family: "system-ui";
+    font-size: 16px;
+    color: rgb(74, 183, 237);
+    padding: 8px 26px;
+    transition: 2s;
+    width: 12rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: 3rem;
+    background: linear-gradient(90deg, rgb(0, 102, 204) 0%, rgb(197, 0, 204) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+    --hover-width: 194px;
+    }
+    
+    .btn:hover{
+    color: rgb(255, 255, 255);
+    width: 194px;
+    background: rgb(0, 102, 204) none repeat scroll 0% 0% / auto padding-box border-box;
+    border-color: rgb(204, 0, 105);
+    border-width: 2px;
+    border-style: solid;
+    }
+
+    .btn i{
+      width: 25px; 
+      margin-left: 3px; 
+      margin-right: 11px;
+    }
+
+
+    /*button1b*/
+
+/* .button1b {
+  display:block;
+  width:50px;
+  height:50px;
+  background: rgba(255, 200, 0, 1);
+  border-radius:25px;
+  border:2px solid rgba(255, 200, 0, 1);
+  transition: all .5s;
+  overflow:hidden;
+}
+
+.button1b:hover {
+  display:block;
+  width:175px;
+  height:50px;
+  background: rgba(255, 200, 0, 1);
+  border-radius:13px;
+  border:2px solid rgba(255, 200, 0, 1);
+  cursor:pointer;
+  transition: all .5s;
+  overflow:hidden;
+  box-shadow: -1px 1px 0px 0px rgba(50, 50, 50, 1), -2px 2px 0px 0px rgba(50, 50, 50, 1), -2px 3px 0px 0px rgba(50, 50, 50, 1);
+}
+
+.button1b-content {
+  font-family:Helvetica;
+  font-size:15px;
+  font-weight:bold;
+  line-height:50px;
+  color: rgba(255, 255, 255, 1);
+  width:150px;
+  position: relative;
+  transition: all 1s;
+  left:150px;
+  height:55px;
+}
+
+.button1b-content:before {
+  content: '★';
+  position: absolute;
+  right: 250px;
+  background-color: rgba(255, 255, 255, 1);
+  width:50px;
+  height:50px;
+  border-radius:25px;
+  color: rgba(255, 200, 0, 1);
+}
+
+.button1b:hover .button1b-content {
+  font-family:Helvetica;
+  font-size:15px;
+  font-weight:bold;
+  line-height:50px;
+  color: rgba(255, 255, 255, 1);
+  width:150px;
+  transition: all 1s;
+  left:0px;
+  background-color: rgba(255, 200, 0, 1);
+  height:50px;
+  border-radius:8px;
+}
+
+.button1b:active {
+  display:block;
+  width:175px;
+  height:50px;
+  background: rgba(255, 200, 0, 1);
+  border-radius:13px;
+  border:2px solid rgba(255, 200, 0, 1);
+  cursor:pointer;
+  overflow:hidden;
+  box-shadow: -1px 1px 0px 0px rgba(50, 50, 50, 1);
+  top:2px;
+  right:2px;
+  position:relative;
+  transition: all 0s;
+} */

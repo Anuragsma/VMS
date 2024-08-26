@@ -1,0 +1,38 @@
+.fix-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh; /* Full height */
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    
+  }
+
+  .side-bar {
+    width: 20%;
+    background-color: #f4a261;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to the top */
+    height: 100%; /* Ensure the sidebar takes the full height */
+    padding: 0; /* Remove any padding */
+    box-sizing: border-box; /* Ensure padding and border are included in width/height */
+    margin: 0;
+  }
+
+  .main-container{
+    width: 80%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #fff;
+    flex-direction: column;
+  }
+  
+  .card{
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }

@@ -1,0 +1,98 @@
+<div class="fix-container">
+    <side-bar class="side-bar"></side-bar>
+    <div class="main-container">
+        <div class="p-2 mb-3">
+            <h4>Capture Photo and ID Card</h4>
+        </div>
+        <div>
+            <div class="row">
+                <!-- Photo Section -->
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="p-2 m-2">
+                            <h6 class="b">Your Photo :
+                                <span>
+                                    <button (click)="togglePhotoWebcam()">Take Photo</button>
+                                </span>
+                            </h6>
+                        </div>
+                        <div class="card-body text-center">
+                            <!-- <h2>Capture Photo</h2> -->
+                            <div class="webcam-container">
+                                <ng-container *ngIf="showPhotoWebcam; else capturedPhoto">
+                                    <webcam [trigger]="photoTriggerObservable" [width]="200" [height]="200"
+                                        (imageCapture)="handlePhotoImage($event)">
+                                    </webcam>
+
+                                    <button (click)="triggerPhotoSnapshot()">Capture Photo</button>
+                                </ng-container>
+                                <ng-template #capturedPhoto>
+                                    <img *ngIf="webcamImage" [src]="webcamImage.imageAsDataUrl" alt="Captured Photo"
+                                        class="resized-image">
+                                </ng-template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ID Card Section -->
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="p-2 m-2">
+                            <h6>ID Card Photo :
+                                <span>
+                                    <button (click)="toggleIdWebcam()">Take ID Photo</button>
+                                </span>
+                            </h6>
+                        </div>
+                        <div class="card-body text-center">
+                            <!-- <h2>Capture ID Card</h2> -->
+                            <div class="webcam-container">
+                                <ng-container *ngIf="showIdWebcam; else capturedId">
+                                    <webcam [trigger]="idPhotoTriggerObservable" [width]="200" [height]="200"
+                                        (imageCapture)="handleIdPhotoImage($event)">
+                                    </webcam>
+                                    <button (click)="triggerIdPhotoSnapshot()">Capture ID Card</button>
+                                </ng-container>
+                                <ng-template #capturedId>
+                                    <img *ngIf="webcamImageId" [src]="webcamImageId.imageAsDataUrl" alt="Captured Id"
+                                        class="resized-image">
+                                </ng-template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12 ">
+                <!-- <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button> -->
+                <button type="submit" class="btn-primary btn-icon" (click)="onClickAdd()">
+                    <!-- <i class="fas fa-plus"></i> -->a
+                </button>
+                <span class="ml-2">Additional Visitor</span>
+            </div>
+            <div *ngIf="lastRegistration">
+                <p><strong>Name:</strong> {{ lastRegistration.name }}</p>
+                <p><strong>Company Name:</strong> {{ lastRegistration.companyName }}</p>
+                <p><strong>Meeting with:</strong> {{ lastRegistration.empName }}</p>
+            </div>
+            <!-- <button class="btn btn-primary btn-icon">
+                <i class="fas fa-plus"></i>
+              </button>
+              <span class="ml-2">Additional Visitor</span> -->
+            <!-- <div class="col-md-6 text-center">
+                <button type="submit" class="btn btn-primary" (click)="closeRegistrationForm()">Close</button>
+            </div> -->
+        </div>
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+            </div>
+            <div class="col-md-6 text-center">
+                <button type="submit" class="btn btn-primary" (click)="closeRegistrationForm()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

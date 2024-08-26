@@ -1,0 +1,6 @@
+.cnf-a, .cnf-b, .cnf-c{
+    color: #f30367ef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

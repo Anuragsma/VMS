@@ -1,0 +1,180 @@
+<div class="fix-container">
+    <side-bar class="side-bar"></side-bar>
+
+    <div class="main-container">
+
+        <div class="p-2 mb-3">
+            <h3>Visitors Registration</h3>
+        </div>
+        <div class="card-body">
+            <form >
+                <div class="row mb-2">
+                    <div class="col-md-4 p-2">
+                        <label for="name" class="form-label">Meeting with * : </label>
+                        <select id="itemSelect" class="form-control p-2" [(ngModel)]="registerData.empName"
+                            name="empName" required>
+                            <option value="">-- Select an Employee --</option>
+                            <option *ngFor="let employee of employees" [value]="employee.empName">{{ employee.empName }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 p-2">
+                        <label for="name" class="form-label">Name of Visitor * : </label>
+                        <input type="text" class="form-control" id="name" [(ngModel)]="registerData.name" name="name"
+                            placeholder="Name" required>
+                    </div>
+                    <div class="col-md-4 p-2">
+                        <label for="company" class="form-label">Company * : </label>
+                        <input type="text" class="form-control" id="company" [(ngModel)]="registerData.companyName"
+                            name="companyName" placeholder="Company Name" required>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-4 p-2">
+                        <label for="phone" class="form-label">Purpose of visit * : </label>
+                        <input type="text" class="form-control" id="reason" [(ngModel)]="registerData.purposeToVisit"
+                            name="purposeToVisit" placeholder="Reason to visit" required>
+                    </div>
+                    <div class="col-md-4 p-2">
+                        <label for="contact" class="form-label">Contact No. * : </label>
+                        <input type="text" class="form-control" id="contact" [(ngModel)]="registerData.contact"
+                            name="contact" placeholder="Phone number" required>
+                    </div>
+                    <div class="col-md-4 p-2">
+                        <label for="email" class="form-label">Email * : </label>
+                        <input type="email" class="form-control" id="email" [(ngModel)]="registerData.email"
+                            name="email" placeholder="Email" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mb-4">
+                            <!-- <button (click)="togglePhotoWebcam()">Capture Photo</button> -->
+                            <button class="camicon-btn cam-btn" (click)="togglePhotoWebcam()">
+                                <!-- <mat-icon>camera_alt</mat-icon><span class="matText">Capture Photo</span> -->
+                                <img class="photoPicReSize" src="assets/images/cameraLogoPic.jpg"><span class="matText">Capture Photo</span>
+                                <!-- <div class="add-icon"></div> -->
+                            <!-- <div class="btn-txt">Add more visitor</div> -->
+                            </button>
+                            <div class="card-body text-center" id="photoPopup" class="popup"
+                                [class.show]="isPhotoPopupVisible">
+                                <!-- <h2>Capture Photo</h2> -->
+                                <div class="webcam-container popup-content">
+                                    <ng-container *ngIf="showPhotoWebcam; else capturedPhoto">
+                                        <webcam [trigger]="photoTriggerObservable" [width]="200" [height]="150"
+                                            (imageCapture)="handlePhotoImage($event)">
+                                        </webcam>
+                                        <!-- <button (click)="triggerPhotoSnapshot()">Click Photo</button> -->
+                                    </ng-container>
+                                    <button *ngIf="showPhotoClickButton" (click)="triggerPhotoSnapshot()">Click
+                                        Photo</button>
+                                    <ng-template #capturedPhoto>
+                                        <img *ngIf="webcamImage" [src]="webcamImage.imageAsDataUrl" alt="Captured Photo"
+                                            class="resized-image">
+                                        <button (click)="resetPhoto()">Retake Photo</button>
+                                    </ng-template>
+                                    <button class="close-btn" (click)="closePhotoPopup()">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ID Card Section -->
+                    <div class="col-md-4 ">
+                        <div class="mb-4">
+                            <!-- <button (click)="toggleIdWebcam()">Capture ID Photo</button> -->
+                            <button class="camicon-btn cam-btn" (click)="toggleIdWebcam()">
+                                <!-- <mat-icon>portrait</mat-icon><span class="matText">Capture Id Card</span> -->
+                                <img class="idCardPicReSize" src="assets/images/idCardPic.jpg"><span class="matText">Capture Id Card</span>
+                                <!-- <div class="add-icon"></div> -->
+                                <!-- <div class="btn-txt">Add more visitor</div> -->
+                            </button>
+
+                            <div class="card-body text-center" id="idPopup" class="popup"
+                                [class.show]="isIdPopupVisible">
+                                <!-- <h2>Capture ID Card</h2> -->
+                                <div class="webcam-container popup-content">
+                                    <ng-container *ngIf="showIdWebcam; else capturedId">
+                                        <webcam [trigger]="idPhotoTriggerObservable" [width]="200" [height]="150"
+                                            (imageCapture)="handleIdPhotoImage($event)">
+                                        </webcam>
+                                    </ng-container>
+                                    <button *ngIf="showIdClickButton" (click)="triggerIdPhotoSnapshot()">Click ID
+                                        Card</button>
+                                    <ng-template #capturedId>
+                                        <img *ngIf="webcamImageId" [src]="webcamImageId.imageAsDataUrl"
+                                            alt="Captured Id" class="resized-image">
+                                        <button (click)="resetIdPhoto()">Retake IdPhoto</button>
+                                    </ng-template>
+                                    <button class="close-btn" (click)="closeIdPopup()">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="icon-btn add-btn" (click)="onAddVisitor()">
+                        <div class="add-icon"></div>
+                        <div class="btn-txt">Add more visitor</div>
+                    </button>
+                </div>
+                <!-- <div class="col-md-8 p-2">
+                    <div *ngIf="tempStoredVisitors.length > 0">
+                        <h5>Visitor Details</h5>
+                        <table class="table table-bordered p-1">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Company Name</th>
+                                    <th>Visitor's image</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let visitor of tempStoredVisitors">
+                                    <td>{{ visitor.name }}</td>
+                                    <td>{{ visitor.companyName }}</td>
+                                    <td><img *ngIf="visitor.photo" [src]="visitor.photo.imageAsDataUrl" alt="Captured Photo" class="tablesize-img"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> -->
+            </form>
+            <div class="col-md-8 p-2">
+                <div *ngIf="tempStoredVisitors.length > 0">
+                    <h5>Visitor Details</h5>
+                    <table class="table table-bordered p-1">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Company Name</th>
+                                <th>Visitor's image</th>
+                                <!-- Add more columns as needed -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let visitor of tempStoredVisitors">
+                                <td>{{ visitor.name }}</td>
+                                <td>{{ visitor.companyName }}</td>
+                                <!-- <td>{{ visitor.photo }}</td> -->
+                                <td><img *ngIf="visitor.photo" [src]="visitor.photo.imageAsDataUrl" alt="Captured Photo" class="tablesize-img"></td>
+                                <!-- <td><img *ngIf="visitor.idPhoto" [src]="visitor.idPhoto.imageAsDataUrl" alt="Captured IdPhoto" class="tablesize-img"></td> -->
+                                <!-- Add more data cells as needed -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer fixed-bottom">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn1 btn-primary" (click)="onNext()">Next</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn1 btn-primary" (click)="closeRegistrationForm()">Close</button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
